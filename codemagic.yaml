@@ -49,8 +49,6 @@ workflows:
     name: iOS Workflow
     instance_type: mac_mini_m1
     max_build_duration: 120
-    integrations:
-      app_store_connect: codemagic
     triggering:
       branch_patterns:
         - pattern: "main"
@@ -59,11 +57,6 @@ workflows:
       events:
         - push
     environment:
-      ios_signing:
-        distribution_type: app_store
-        bundle_identifier: com.example.my_test_stacked
-      vars:
-        APP_ID: 1111111111 # <-- Put your APP ID here
       flutter: stable
       xcode: latest # <-- set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
       cocoapods: default
