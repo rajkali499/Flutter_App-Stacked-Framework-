@@ -1,8 +1,16 @@
 workflows:
+
   sample-workflow:
     name: Android Workflow
     max_build_duration: 120
     instance_type: mac_mini_m1
+    triggering:
+      branch_patterns:
+        - pattern: "main"
+          include: true
+          source: true
+      events:
+        - push
     scripts:
       - name: Set up local.properties
         script: |
@@ -43,6 +51,13 @@ workflows:
     max_build_duration: 120
     integrations:
       app_store_connect: codemagic
+    triggering:
+      branch_patterns:
+        - pattern: "main"
+          include: true
+          source: true
+      events:
+        - push
     environment:
       ios_signing:
         distribution_type: app_store
