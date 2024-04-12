@@ -4,13 +4,13 @@ workflows:
     name: Android Workflow
     max_build_duration: 120
     instance_type: mac_mini_m1
-    triggering:
-      branch_patterns:
-        - pattern: "main"
-          include: true
-          source: true
-      events:
-        - push
+#    triggering:
+#      branch_patterns:
+#        - pattern: "main"
+#          include: true
+#          source: true
+#      events:
+#        - push
     scripts:
       - name: Set up local.properties
         script: |
@@ -49,13 +49,13 @@ workflows:
     name: iOS Workflow
     instance_type: mac_mini_m1
     max_build_duration: 120
-    triggering:
-      branch_patterns:
-        - pattern: "main"
-          include: true
-          source: true
-      events:
-        - push
+#    triggering:
+#      branch_patterns:
+#        - pattern: "main"
+#          include: true
+#          source: true
+#      events:
+#        - push
     environment:
       flutter: stable
       xcode: latest # <-- set to specific version e.g. 14.3, 15.0 to avoid unexpected updates.
