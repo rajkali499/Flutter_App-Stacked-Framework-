@@ -79,10 +79,7 @@ workflows:
         ignore_failure: true
       - name: Flutter build ios debug file and automatic versioning
         script: |
-          flutter build ipa --release \
-            --build-name=1.0.0 \
-            --build-number=$(($(build-number) + 1)) \
-            --export-options-plist=$HOME/export_options.plist
+          flutter build ios --release --no-codesign
     artifacts:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
